@@ -1,6 +1,8 @@
 import os
 import sys
 
+import aiobungie.crate
+
 from src.ActivityFilterList import ActivityFilterList
 
 
@@ -117,7 +119,7 @@ def init():
     
     ## filter by activity
     ## currently broken
-    # Settings.Filters.addFilter("activity", "is", ActivityType.AllPvE)
+    # Settings.Filters.addFilter("activity", "is", aiobungie.GameMode.ALLPVE)
     
     ## only list first n matches, 0 to list all
     Settings.OnlyListFirstN = 0

@@ -1,90 +1,4 @@
 import typing
-from enum import (
-    Enum
-)
-
-
-class ActivityType(Enum):
-    Null = 0
-    Story = 2
-    Strike = 3
-    Raid = 4
-    AllPvP = 5
-    Patrol = 6
-    AllPvE = 7
-    Reserved9 = 9
-    Control = 10
-    Reserved11 = 11
-    Clash = 12
-    Reserved13 = 13
-    CrimsonDoubles = 15
-    Nightfall = 16
-    HeroicNightfall = 17
-    AllStrikes = 18
-    IronBanner = 19
-    Reserved20 = 20
-    Reserved21 = 21
-    Reserved22 = 22
-    Reserved24 = 24
-    AllMayhem = 25
-    Reserved26 = 26
-    Reserved27 = 27
-    Reserved28 = 28
-    Reserved29 = 29
-    Reserved30 = 30
-    Supremacy = 31
-    PrivateMatchesAll = 32
-    Survival = 37
-    Countdown = 38
-    TrialsOfTheNine = 39
-    Social = 40
-    TrialsCountdown = 41
-    TrialsSurvival = 42
-    IronBannerControl = 43
-    IronBannerClash = 44
-    IronBannerSupremacy = 45
-    ScoredNightfall = 46
-    ScoredHeroicNightfall = 47
-    Rumble = 48
-    AllDoubles = 49
-    Doubles = 50
-    PrivateMatchesClash = 51
-    PrivateMatchesControl = 52
-    PrivateMatchesSupremacy = 53
-    PrivateMatchesCountdown = 54
-    PrivateMatchesSurvival = 55
-    PrivateMatchesMayhem = 56
-    PrivateMatchesRumble = 57
-    HeroicAdventure = 58
-    Showdown = 59
-    Lockdown = 60
-    Scorched = 61
-    ScorchedTeam = 62
-    Gambit = 63
-    AllPvECompetitive = 64
-    Breakthrough = 65
-    BlackArmoryRun = 66
-    Salvage = 67
-    IronBannerSalvage = 68
-    PvPCompetitive = 69
-    PvPQuickplay = 70
-    ClashQuickplay = 71
-    ClashCompetitive = 72
-    ControlQuickplay = 73
-    ControlCompetitive = 74
-    GambitPrime = 75
-    Reckoning = 76
-    Menagerie = 77
-    VexOffensive = 78
-    NightmareHunt = 79
-    Elimination = 80
-    Momentum = 81
-    Dungeon = 82
-    Sundial = 83
-    TrialsOfOsiris = 84
-    Dares = 85
-    Offensive = 86
-
 
 FilterType = typing.Literal["activity", "date", "character"]
 OperatorType = typing.Literal["after", "before", "is", "is not", "in", "not in"]
@@ -104,7 +18,8 @@ class ActivityFilterList:
 
         - "activity", filters by activity type. CURRENTLY BROKEN AND WILL NOT CHANGE BATCHES.
           - supported operators: "is", "is not", "in", "not in"
-          - value type: Any member of ActivityType (or a list, depending on the operator)
+          - value type: A GameMode value (or a list, depending on the operator)
+                        See aiobungie.GameMode for a mapping.
 
         - "date", filters by activity date
           - supported operators: "before", "after"
@@ -113,8 +28,8 @@ class ActivityFilterList:
 
         - "character", filters by class
           - supported operators: "is", "is not", "in", "not in"
-          - value type: A DestinyCharacter value (or a list, depending on the operator)
-                        See aiobungie.DestinyCharecter [sic!] for a mapping.
+          - value type: A Class value (or a list, depending on the operator)
+                        See aiobungie.Class for a mapping.
 
         :param filterType: A valid filter type.
         :param operator: A valid operator.
