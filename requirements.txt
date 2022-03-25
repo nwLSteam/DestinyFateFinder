@@ -1,0 +1,3 @@
+aiobungie==0.2.5b12
+aiocurl==0.0.3.post1
+requests==2.27.1
